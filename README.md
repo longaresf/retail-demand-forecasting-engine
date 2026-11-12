@@ -42,6 +42,10 @@ preprocessing -> features -> backtesting -> baselines / XGBoost -> evaluate
 - `src/backtesting.py`: validación walk-forward de ventana expansiva, en orden
   temporal y sin mezclar observaciones futuras en entrenamiento.
 - `src/evaluate.py`: RMSE, MAE, WAPE y tabla comparativa de modelos.
+- `app.py`: dashboard Streamlit para explorar series y comparar XGBoost con la
+  demanda observada en un período de prueba temporal.
+- `tests/test_backtesting_and_models.py`: pruebas de orden cronológico,
+  predicciones/métricas finitas y features causales.
 - `data/sample_data.py`: generador determinista local; `notebooks/` contiene la
   exploración y visualización, no lógica de negocio.
 - `.github/workflows/tests.yml`: ejecuta pytest para Python 3.10, 3.11 y 3.12.
@@ -74,8 +78,42 @@ python -m pip install -r requirements.txt
 python -m pytest -q
 ```
 
+Las pruebas nuevas pueden ejecutarse de forma aislada:
+
+```bash
+python -m pytest -q tests/test_backtesting_and_models.py
+```
+
 Descarga opcional del dataset Kaggle e instrucciones de credenciales en
 [data/README.md](data/README.md). No versiona datasets reales ni tokens.
+
+## Aplicación web local
+
+Desde la raíz del repositorio y con el entorno virtual activado:
+
+```bash
+streamlit run app.py
+```
+
+La aplicación abre un dashboard con datos sintéticos reproducibles de forma
+predeterminada. También permite cargar un CSV con las columnas `date`, `store`,
+`item` y `sales` (por ejemplo, `train.csv` de Store Item Demand Forecasting),
+elegir una tienda y un producto, ajustar la longitud del bloque de prueba y
+visualizar demanda histórica, predicción XGBoost y métricas RMSE/WAPE.
+
+## Por qué validar sin fuga temporal
+
+En retail, una partición aleatoria puede colocar días futuros en entrenamiento
+y días pasados en prueba. Eso permite que el modelo aprenda promociones,
+tendencias o patrones de calendario que todavía no estarían disponibles al
+momento de reponer inventario, y produce métricas artificialmente optimistas.
+El walk-forward de este motor ordena primero las observaciones, entrena con
+fechas estrictamente anteriores al bloque de prueba y expande el histórico en
+cada fold. Las features de demanda se desplazan para que lags y ventanas solo
+usen valores previos. El dashboard evalúa un paso hacia adelante: se asume que,
+al avanzar por el período de prueba, la venta del día anterior ya se observó.
+Para una decisión multi-horizonte emitida en una sola fecha, se requiere una
+validación recursiva distinta que no use ventas reales futuras.
 
 ## Ejemplo de uso
 
