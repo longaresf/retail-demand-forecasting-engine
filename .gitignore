@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Testing, linting, and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Notebooks and local environments
+.ipynb_checkpoints/
+.jupyter/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local data and model artifacts
+data/raw/
+data/processed/
+data/*.csv
+*.parquet
+*.joblib
+*.pkl
+*.model
