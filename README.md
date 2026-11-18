@@ -1,5 +1,18 @@
 # Retail Demand Forecasting Engine 📈
 
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-active-brightgreen.svg)](#)
+[![Tests](https://github.com/longaresf/retail-demand-forecasting-engine/actions/workflows/tests.yml/badge.svg)](https://github.com/longaresf/retail-demand-forecasting-engine/actions/workflows/tests.yml)
+
+A robust, production-ready time-series forecasting and inventory replenishment engine designed for the retail sector. This repository demonstrates an end-to-end workflow featuring automated data preprocessing, causal feature engineering, gradient boosted trees, and strict chronological backtesting to eliminate data leakage.
+
+## 📋 Project Overview
+
+Building reliable forecasting systems for retail requires more than just fitting a machine learning model; it demands strict chronological validation, feature safety, and systematic performance diagnostics. This project implements an enterprise-grade pipeline that automates time-series feature generation (lags and rolling windows), handles intermittent demand, benchmarks baseline models against **XGBoost**, and executes rigorous **walk-forward validation**.
+
+---
+
 ## Impacto de Negocio y Caso de Uso Operativo
 
 ### ¿Qué problema empresarial resuelve esta arquitectura?
@@ -16,19 +29,6 @@ Este motor automatiza la proyección de demanda y el cálculo de reposición:
 
 ---
 *(A continuación se detalla la metodología de modelado, estructura del código y ejecución)*
-
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active-brightgreen.svg)](#)
-[![Tests](https://github.com/longaresf/retail-demand-forecasting-engine/actions/workflows/tests.yml/badge.svg)](https://github.com/longaresf/retail-demand-forecasting-engine/actions/workflows/tests.yml)
-
-A robust, production-ready time-series forecasting and inventory replenishment engine designed for the retail sector. This repository demonstrates an end-to-end workflow featuring automated data preprocessing, causal feature engineering, gradient boosted trees, and strict chronological backtesting to eliminate data leakage.
-
-## 📋 Project Overview
-
-Building reliable forecasting systems for retail requires more than just fitting a machine learning model; it demands strict chronological validation, feature safety, and systematic performance diagnostics. This project implements an enterprise-grade pipeline that automates time-series feature generation (lags and rolling windows), handles intermittent demand, benchmarks baseline models against **XGBoost**, and executes rigorous **walk-forward validation**.
-
----
 
 ## ✨ Core Pipeline Architecture
 
