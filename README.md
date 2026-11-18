@@ -1,5 +1,22 @@
 # Retail Demand Forecasting Engine 📈
 
+## Impacto de Negocio y Caso de Uso Operativo
+
+### ¿Qué problema empresarial resuelve esta arquitectura?
+Comprar inventario basándose únicamente en intuición o promedios simples en Excel provoca dos pérdidas directas en la caja: **quiebres de stock** en los productos de mayor rotación (ventas perdidas) y **sobrestock** en productos lentos (capital de trabajo inmovilizado).
+
+Este motor automatiza la proyección de demanda y el cálculo de reposición:
+* **Anticipación de demanda:** Analiza el historial de ventas y estacionalidad para proyectar el consumo esperado por SKU.
+* **Alertas accionables de compra:** Identifica qué productos entrarán en riesgo de quiebre en los próximos días y sugiere cantidades óptimas de reposición.
+* **Trazabilidad y reproducibilidad:** Pipeline automatizado en Python con validación de métricas de error y ejecución programada.
+
+### Beneficios Clave
+* **Protección de margen y liquidez:** Evita compras de emergencia costosas y libera caja atrapada en inventario lento.
+* **Integración no invasiva:** Opera sobre exportaciones estándar de ventas/inventario sin requerir cambios en el ERP actual.
+
+---
+*(A continuación se detalla la metodología de modelado, estructura del código y ejecución)*
+
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-active-brightgreen.svg)](#)
