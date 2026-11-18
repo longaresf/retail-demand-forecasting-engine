@@ -13,22 +13,22 @@ Building reliable forecasting systems for retail requires more than just fitting
 
 ---
 
-## Impacto de Negocio y Caso de Uso Operativo
+## Business Impact and Operational Use Case
 
-### ¿Qué problema empresarial resuelve esta arquitectura?
-Comprar inventario basándose únicamente en intuición o promedios simples en Excel provoca dos pérdidas directas en la caja: **quiebres de stock** en los productos de mayor rotación (ventas perdidas) y **sobrestock** en productos lentos (capital de trabajo inmovilizado).
+### What business problem does this architecture solve?
+Purchasing inventory based solely on intuition or simple averages in Excel leads to two direct financial losses: stockouts of high-turnover products (lost sales) and overstocking of slow-moving items (tied-up working capital).
 
-Este motor automatiza la proyección de demanda y el cálculo de reposición:
-* **Anticipación de demanda:** Analiza el historial de ventas y estacionalidad para proyectar el consumo esperado por SKU.
-* **Alertas accionables de compra:** Identifica qué productos entrarán en riesgo de quiebre en los próximos días y sugiere cantidades óptimas de reposición.
-* **Trazabilidad y reproducibilidad:** Pipeline automatizado en Python con validación de métricas de error y ejecución programada.
+This engine automates demand forecasting and replenishment calculations:
+* **Demand anticipation:** Analyzes sales history and seasonality to project expected consumption per SKU.
+* **Actionable purchasing alerts:** Identifies products at risk of running out in the coming days and suggests optimal replenishment quantities.
+* **Traceability and reproducibility:** An automated Python pipeline featuring error-metric validation and scheduled execution.
 
-### Beneficios Clave
-* **Protección de margen y liquidez:** Evita compras de emergencia costosas y libera caja atrapada en inventario lento.
-* **Integración no invasiva:** Opera sobre exportaciones estándar de ventas/inventario sin requerir cambios en el ERP actual.
+### Key Benefits
+* **Margin and liquidity protection:** Prevents costly emergency purchases and frees up cash tied up in slow-moving inventory.
+* **Non-invasive integration:** Works with standard sales/inventory exports without requiring changes to your existing ERP system.
 
 ---
-*(A continuación se detalla la metodología de modelado, estructura del código y ejecución)*
+*(The modeling methodology, code structure, and execution process are detailed below)*
 
 ## ✨ Core Pipeline Architecture
 
